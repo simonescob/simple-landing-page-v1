@@ -1,0 +1,1067 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Find your perfect car with competitive financing, certified quality, and exceptional service. Browse our premium selection of new and used vehicles.">
+    <meta name="keywords" content="cars for sale, automotive, car dealer, financing, used cars, new cars, premium vehicles">
+    <meta name="author" content="AutoElite Motors">
+    
+    <!-- Open Graph Meta Tags -->
+    <meta property="og:title" content="AutoElite Motors - Premium Car Dealer">
+    <meta property="og:description" content="Find your perfect car with competitive financing and exceptional service.">
+    <meta property="og:type" content="website">
+    <meta property="og:image" content="https://images.unsplash.com/photo-1493238792000-8113da705763?w=1200&h=630&fit=crop">
+    
+    <!-- Twitter Card Meta Tags -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="AutoElite Motors - Premium Car Dealer">
+    <meta name="twitter:description" content="Find your perfect car with competitive financing and exceptional service.">
+    <meta name="twitter:image" content="https://images.unsplash.com/photo-1493238792000-8113da705763?w=1200&h=630&fit=crop">
+    
+    <title>AutoElite Motors - Premium Cars & Exceptional Financing</title>
+    
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    
+    <!-- Font Awesome for Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    
+    <style>
+        body {
+            font-family: 'Inter', sans-serif;
+        }
+        
+        .hero-gradient {
+            background: linear-gradient(135deg, rgba(0, 0, 0, 0.7) 0%, rgba(59, 130, 246, 0.3) 100%);
+        }
+        
+        .car-card {
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+        
+        .car-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
+        }
+        
+        .testimonial-card {
+            background: linear-gradient(135deg, #f8fafc 0%, #e2e8f0 100%);
+        }
+        
+        .btn-primary {
+            background: linear-gradient(135deg, #3b82f6 0%, #1d4ed8 100%);
+            transition: all 0.3s ease;
+        }
+        
+        .btn-primary:hover {
+            background: linear-gradient(135deg, #1d4ed8 0%, #1e40af 100%);
+            transform: translateY(-1px);
+            box-shadow: 0 10px 20px rgba(59, 130, 246, 0.3);
+        }
+        
+        .smooth-scroll {
+            scroll-behavior: smooth;
+        }
+        
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+        
+        .fade-in-up {
+            animation: fadeInUp 0.6s ease-out;
+        }
+        
+        .pulse-ring {
+            animation: pulse-ring 1.25s cubic-bezier(0.215, 0.61, 0.355, 1) infinite;
+        }
+        
+        @keyframes pulse-ring {
+            0% {
+                transform: scale(0.8);
+                opacity: 1;
+            }
+            100% {
+                transform: scale(2.4);
+                opacity: 0;
+            }
+        }
+    </style>
+</head>
+<body class="bg-white text-gray-900 smooth-scroll">
+    <!-- Navigation -->
+    <nav class="fixed top-0 w-full bg-white/95 backdrop-blur-md shadow-lg z-50">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between items-center h-16">
+                <div class="flex items-center">
+                    <div class="text-2xl font-bold text-blue-600">
+                        <i class="fas fa-car-side mr-2"></i>AutoElite
+                    </div>
+                </div>
+                
+                <div class="hidden md:block">
+                    <div class="ml-10 flex items-baseline space-x-8">
+                        <a href="#vehicles" class="text-gray-700 hover:text-blue-600 px-3 py-2 text-sm font-medium transition-colors">Vehicles</a>
+                        <a href="#financing" class="text-gray-700 hover:text-blue-600 px-3 py-2 text-sm font-medium transition-colors">Financing</a>
+                        <a href="#testimonials" class="text-gray-700 hover:text-blue-600 px-3 py-2 text-sm font-medium transition-colors">Reviews</a>
+                        <a href="#contact" class="text-gray-700 hover:text-blue-600 px-3 py-2 text-sm font-medium transition-colors">Contact</a>
+                    </div>
+                </div>
+                
+                <div class="flex items-center space-x-4">
+                    <a href="tel:+1-555-CARS" class="hidden sm:flex items-center text-sm font-medium text-blue-600">
+                        <i class="fas fa-phone mr-1"></i>(555) CARS
+                    </a>
+                    <a href="#contact" class="btn-primary text-white px-4 py-2 rounded-lg text-sm font-medium">
+                        Get Started
+                    </a>
+                </div>
+                
+                <!-- Mobile menu button -->
+                <div class="md:hidden">
+                    <button id="mobile-menu-button" class="text-gray-700 hover:text-blue-600 focus:outline-none focus:text-blue-600">
+                        <i class="fas fa-bars text-xl"></i>
+                    </button>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Mobile menu -->
+        <div id="mobile-menu" class="md:hidden hidden bg-white border-t border-gray-200">
+            <div class="px-2 pt-2 pb-3 space-y-1 sm:px-3">
+                <a href="#vehicles" class="text-gray-700 hover:text-blue-600 block px-3 py-2 text-base font-medium">Vehicles</a>
+                <a href="#financing" class="text-gray-700 hover:text-blue-600 block px-3 py-2 text-base font-medium">Financing</a>
+                <a href="#testimonials" class="text-gray-700 hover:text-blue-600 block px-3 py-2 text-base font-medium">Reviews</a>
+                <a href="#contact" class="text-gray-700 hover:text-blue-600 block px-3 py-2 text-base font-medium">Contact</a>
+                <a href="tel:+1-555-CARS" class="text-blue-600 block px-3 py-2 text-base font-medium">
+                    <i class="fas fa-phone mr-1"></i>(555) CARS
+                </a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="relative h-screen flex items-center justify-center overflow-hidden">
+        <div class="absolute inset-0 hero-gradient z-10"></div>
+        <div class="absolute inset-0">
+            <img src="https://images.unsplash.com/photo-1493238792000-8113da705763?w=1920&h=1080&fit=crop" 
+                 alt="Luxury car showroom" 
+                 class="w-full h-full object-cover"
+                 loading="eager">
+        </div>
+        
+        <div class="relative z-20 text-center text-white max-w-4xl mx-auto px-4">
+            <div class="fade-in-up">
+                <h1 class="text-5xl md:text-7xl font-bold mb-6 leading-tight">
+                    Find Your Perfect
+                    <span class="text-transparent bg-clip-text bg-gradient-to-r from-blue-400 to-purple-600">Car Today</span>
+                </h1>
+                <p class="text-xl md:text-2xl mb-8 text-gray-200 leading-relaxed">
+                    Premium vehicles with competitive financing. Over 15,000 satisfied customers trust AutoElite Motors.
+                </p>
+                <div class="flex flex-col sm:flex-row gap-4 justify-center items-center">
+                    <a href="#vehicles" class="btn-primary text-white px-8 py-4 rounded-lg text-lg font-semibold">
+                        <i class="fas fa-search mr-2"></i>Browse Vehicles
+                    </a>
+                    <a href="#financing" class="bg-white/20 backdrop-blur-md text-white px-8 py-4 rounded-lg text-lg font-semibold hover:bg-white/30 transition-all">
+                        <i class="fas fa-calculator mr-2"></i>Check Financing
+                    </a>
+                </div>
+                
+                <!-- Trust Indicators -->
+                <div class="mt-12 flex flex-wrap justify-center items-center gap-8 text-sm">
+                    <div class="flex items-center">
+                        <i class="fas fa-shield-alt text-green-400 mr-2"></i>
+                        <span>15+ Years Experience</span>
+                    </div>
+                    <div class="flex items-center">
+                        <i class="fas fa-award text-yellow-400 mr-2"></i>
+                        <span>Award-Winning Service</span>
+                    </div>
+                    <div class="flex items-center">
+                        <i class="fas fa-users text-blue-400 mr-2"></i>
+                        <span>15,000+ Happy Customers</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Scroll indicator -->
+        <div class="absolute bottom-8 left-1/2 transform -translate-x-1/2 z-20">
+            <div class="animate-bounce">
+                <i class="fas fa-chevron-down text-white text-2xl"></i>
+            </div>
+        </div>
+    </section>
+
+    <!-- Featured Vehicles Section -->
+    <section id="vehicles" class="py-20 bg-gray-50">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-16">
+                <h2 class="text-4xl md:text-5xl font-bold text-gray-900 mb-4">
+                    Featured Vehicles
+                </h2>
+                <p class="text-xl text-gray-600 max-w-3xl mx-auto">
+                    Discover our handpicked selection of premium vehicles, each thoroughly inspected and backed by our comprehensive warranty.
+                </p>
+            </div>
+            
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                <!-- Vehicle Card 1 -->
+                <div class="car-card bg-white rounded-xl shadow-lg overflow-hidden">
+                    <div class="relative">
+                        <img src="https://images.unsplash.com/photo-1618843479313-40f8afb4b4d8?w=500&h=300&fit=crop" 
+                             alt="2024 BMW X5" 
+                             class="w-full h-64 object-cover"
+                             loading="lazy">
+                        <div class="absolute top-4 right-4 bg-green-500 text-white px-3 py-1 rounded-full text-sm font-semibold">
+                            Certified
+                        </div>
+                    </div>
+                    <div class="p-6">
+                        <h3 class="text-2xl font-bold text-gray-900 mb-2">2024 BMW X5</h3>
+                        <p class="text-gray-600 mb-4">Luxury SUV with advanced technology and premium comfort.</p>
+                        
+                        <div class="grid grid-cols-2 gap-4 mb-4 text-sm">
+                            <div class="flex items-center">
+                                <i class="fas fa-tachometer-alt text-blue-500 mr-2"></i>
+                                <span>15,420 miles</span>
+                            </div>
+                            <div class="flex items-center">
+                                <i class="fas fa-cog text-blue-500 mr-2"></i>
+                                <span>Automatic</span>
+                            </div>
+                            <div class="flex items-center">
+                                <i class="fas fa-gas-pump text-blue-500 mr-2"></i>
+                                <span>23 MPG</span>
+                            </div>
+                            <div class="flex items-center">
+                                <i class="fas fa-palette text-blue-500 mr-2"></i>
+                                <span>Alpine White</span>
+                            </div>
+                        </div>
+                        
+                        <div class="flex items-center justify-between mb-4">
+                            <div class="text-3xl font-bold text-blue-600">$67,900</div>
+                            <div class="text-sm text-gray-500">Starting at $899/mo</div>
+                        </div>
+                        
+                        <div class="flex gap-2">
+                            <button class="flex-1 btn-primary text-white py-3 rounded-lg font-semibold">
+                                View Details
+                            </button>
+                            <button class="px-4 py-3 border border-blue-600 text-blue-600 rounded-lg hover:bg-blue-50 transition-colors">
+                                <i class="fas fa-heart"></i>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Vehicle Card 2 -->
+                <div class="car-card bg-white rounded-xl shadow-lg overflow-hidden">
+                    <div class="relative">
+                        <img src="https://images.unsplash.com/photo-1606664515524-ed2f786a0bd6?w=500&h=300&fit=crop" 
+                             alt="2023 Tesla Model S" 
+                             class="w-full h-64 object-cover"
+                             loading="lazy">
+                        <div class="absolute top-4 right-4 bg-green-500 text-white px-3 py-1 rounded-full text-sm font-semibold">
+                            Certified
+                        </div>
+                    </div>
+                    <div class="p-6">
+                        <h3 class="text-2xl font-bold text-gray-900 mb-2">2023 Tesla Model S</h3>
+                        <p class="text-gray-600 mb-4">All-electric luxury sedan with autopilot and long-range capabilities.</p>
+                        
+                        <div class="grid grid-cols-2 gap-4 mb-4 text-sm">
+                            <div class="flex items-center">
+                                <i class="fas fa-tachometer-alt text-blue-500 mr-2"></i>
+                                <span>8,250 miles</span>
+                            </div>
+                            <div class="flex items-center">
+                                <i class="fas fa-cog text-blue-500 mr-2"></i>
+                                <span>Automatic</span>
+                            </div>
+                            <div class="flex items-center">
+                                <i class="fas fa-bolt text-blue-500 mr-2"></i>
+                                <span>405 mi range</span>
+                            </div>
+                            <div class="flex items-center">
+                                <i class="fas fa-palette text-blue-500 mr-2"></i>
+                                <span>Midnight Silver</span>
+                            </div>
+                        </div>
+                        
+                        <div class="flex items-center justify-between mb-4">
+                            <div class="text-3xl font-bold text-blue-600">$89,900</div>
+                            <div class="text-sm text-gray-500">Starting at $1,299/mo</div>
+                        </div>
+                        
+                        <div class="flex gap-2">
+                            <button class="flex-1 btn-primary text-white py-3 rounded-lg font-semibold">
+                                View Details
+                            </button>
+                            <button class="px-4 py-3 border border-blue-600 text-blue-600 rounded-lg hover:bg-blue-50 transition-colors">
+                                <i class="fas fa-heart"></i>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Vehicle Card 3 -->
+                <div class="car-card bg-white rounded-xl shadow-lg overflow-hidden">
+                    <div class="relative">
+                        <img src="https://images.unsplash.com/photo-1552519507-da3b142c6e3d?w=500&h=300&fit=crop" 
+                             alt="2024 Mercedes-Benz C-Class" 
+                             class="w-full h-64 object-cover"
+                             loading="lazy">
+                        <div class="absolute top-4 right-4 bg-green-500 text-white px-3 py-1 rounded-full text-sm font-semibold">
+                            Certified
+                        </div>
+                    </div>
+                    <div class="p-6">
+                        <h3 class="text-2xl font-bold text-gray-900 mb-2">2024 Mercedes-Benz C-Class</h3>
+                        <p class="text-gray-600 mb-4">Premium sedan with MBUX infotainment and advanced safety features.</p>
+                        
+                        <div class="grid grid-cols-2 gap-4 mb-4 text-sm">
+                            <div class="flex items-center">
+                                <i class="fas fa-tachometer-alt text-blue-500 mr-2"></i>
+                                <span>12,680 miles</span>
+                            </div>
+                            <div class="flex items-center">
+                                <i class="fas fa-cog text-blue-500 mr-2"></i>
+                                <span>Automatic</span>
+                            </div>
+                            <div class="flex items-center">
+                                <i class="fas fa-gas-pump text-blue-500 mr-2"></i>
+                                <span>31 MPG</span>
+                            </div>
+                            <div class="flex items-center">
+                                <i class="fas fa-palette text-blue-500 mr-2"></i>
+                                <span>Obsidian Black</span>
+                            </div>
+                        </div>
+                        
+                        <div class="flex items-center justify-between mb-4">
+                            <div class="text-3xl font-bold text-blue-600">$52,400</div>
+                            <div class="text-sm text-gray-500">Starting at $699/mo</div>
+                        </div>
+                        
+                        <div class="flex gap-2">
+                            <button class="flex-1 btn-primary text-white py-3 rounded-lg font-semibold">
+                                View Details
+                            </button>
+                            <button class="px-4 py-3 border border-blue-600 text-blue-600 rounded-lg hover:bg-blue-50 transition-colors">
+                                <i class="fas fa-heart"></i>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="text-center mt-12">
+                <a href="#contact" class="btn-primary text-white px-8 py-4 rounded-lg text-lg font-semibold inline-flex items-center">
+                    <i class="fas fa-eye mr-2"></i>View All Vehicles
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Testimonials Section -->
+    <section id="testimonials" class="py-20 bg-white">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-16">
+                <h2 class="text-4xl md:text-5xl font-bold text-gray-900 mb-4">
+                    What Our Customers Say
+                </h2>
+                <p class="text-xl text-gray-600 max-w-3xl mx-auto">
+                    Don't just take our word for it. See why thousands of customers choose AutoElite Motors for their automotive needs.
+                </p>
+            </div>
+            
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                <!-- Testimonial 1 -->
+                <div class="testimonial-card p-8 rounded-xl">
+                    <div class="flex items-center mb-4">
+                        <div class="flex text-yellow-400">
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                        </div>
+                        <span class="ml-2 text-sm text-gray-600">5.0</span>
+                    </div>
+                    <p class="text-gray-700 mb-6 italic">
+                        "Amazing experience from start to finish! The team helped me find the perfect BMW within my budget. The financing process was seamless and transparent."
+                    </p>
+                    <div class="flex items-center">
+                        <div class="w-12 h-12 bg-blue-500 rounded-full flex items-center justify-center text-white font-bold mr-4">
+                            SM
+                        </div>
+                        <div>
+                            <div class="font-semibold text-gray-900">Sarah Mitchell</div>
+                            <div class="text-sm text-gray-600">BMW X5 Owner</div>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Testimonial 2 -->
+                <div class="testimonial-card p-8 rounded-xl">
+                    <div class="flex items-center mb-4">
+                        <div class="flex text-yellow-400">
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                        </div>
+                        <span class="ml-2 text-sm text-gray-600">5.0</span>
+                    </div>
+                    <p class="text-gray-700 mb-6 italic">
+                        "I've bought three cars from AutoElite over the years. Their service is consistently excellent and they always stand behind their vehicles."
+                    </p>
+                    <div class="flex items-center">
+                        <div class="w-12 h-12 bg-green-500 rounded-full flex items-center justify-center text-white font-bold mr-4">
+                            MJ
+                        </div>
+                        <div>
+                            <div class="font-semibold text-gray-900">Michael Johnson</div>
+                            <div class="text-sm text-gray-600">Tesla Model S Owner</div>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Testimonial 3 -->
+                <div class="testimonial-card p-8 rounded-xl">
+                    <div class="flex items-center mb-4">
+                        <div class="flex text-yellow-400">
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                        </div>
+                        <span class="ml-2 text-sm text-gray-600">5.0</span>
+                    </div>
+                    <p class="text-gray-700 mb-6 italic">
+                        "The online experience was fantastic! I could browse inventory, apply for financing, and even schedule a test drive all from home."
+                    </p>
+                    <div class="flex items-center">
+                        <div class="w-12 h-12 bg-purple-500 rounded-full flex items-center justify-center text-white font-bold mr-4">
+                            ER
+                        </div>
+                        <div>
+                            <div class="font-semibold text-gray-900">Emily Rodriguez</div>
+                            <div class="text-sm text-gray-600">Mercedes C-Class Owner</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Social Proof Stats -->
+            <div class="mt-16 grid grid-cols-2 md:grid-cols-4 gap-8 text-center">
+                <div>
+                    <div class="text-4xl font-bold text-blue-600 mb-2">15,000+</div>
+                    <div class="text-gray-600">Happy Customers</div>
+                </div>
+                <div>
+                    <div class="text-4xl font-bold text-blue-600 mb-2">98%</div>
+                    <div class="text-gray-600">Customer Satisfaction</div>
+                </div>
+                <div>
+                    <div class="text-4xl font-bold text-blue-600 mb-2">500+</div>
+                    <div class="text-gray-600">5-Star Reviews</div>
+                </div>
+                <div>
+                    <div class="text-4xl font-bold text-blue-600 mb-2">15+</div>
+                    <div class="text-gray-600">Years Experience</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Financing Section -->
+    <section id="financing" class="py-20 bg-gray-50">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-16">
+                <h2 class="text-4xl md:text-5xl font-bold text-gray-900 mb-4">
+                    Flexible Financing Options
+                </h2>
+                <p class="text-xl text-gray-600 max-w-3xl mx-auto">
+                    Get pre-qualified in minutes with our competitive rates and flexible terms. No matter your credit situation, we'll work with you.
+                </p>
+            </div>
+            
+            <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+                <div>
+                    <h3 class="text-3xl font-bold text-gray-900 mb-6">Why Choose Our Financing?</h3>
+                    <div class="space-y-6">
+                        <div class="flex items-start">
+                            <div class="flex-shrink-0 w-12 h-12 bg-blue-100 rounded-lg flex items-center justify-center mr-4">
+                                <i class="fas fa-percentage text-blue-600 text-xl"></i>
+                            </div>
+                            <div>
+                                <h4 class="text-xl font-semibold text-gray-900 mb-2">Competitive Rates</h4>
+                                <p class="text-gray-600">Starting from 2.9% APR with approved credit. No hidden fees or surprises.</p>
+                            </div>
+                        </div>
+                        
+                        <div class="flex items-start">
+                            <div class="flex-shrink-0 w-12 h-12 bg-green-100 rounded-lg flex items-center justify-center mr-4">
+                                <i class="fas fa-clock text-green-600 text-xl"></i>
+                            </div>
+                            <div>
+                                <h4 class="text-xl font-semibold text-gray-900 mb-2">Quick Approval</h4>
+                                <p class="text-gray-600">Get pre-qualified in minutes with our online application. Most approvals within 24 hours.</p>
+                            </div>
+                        </div>
+                        
+                        <div class="flex items-start">
+                            <div class="flex-shrink-0 w-12 h-12 bg-purple-100 rounded-lg flex items-center justify-center mr-4">
+                                <i class="fas fa-shield-alt text-purple-600 text-xl"></i>
+                            </div>
+                            <div>
+                                <h4 class="text-xl font-semibold text-gray-900 mb-2">Flexible Terms</h4>
+                                <p class="text-gray-600">Choose from 12 to 84-month terms to fit your budget and lifestyle.</p>
+                            </div>
+                        </div>
+                        
+                        <div class="flex items-start">
+                            <div class="flex-shrink-0 w-12 h-12 bg-yellow-100 rounded-lg flex items-center justify-center mr-4">
+                                <i class="fas fa-credit-card text-yellow-600 text-xl"></i>
+                            </div>
+                            <div>
+                                <h4 class="text-xl font-semibold text-gray-900 mb-2">All Credit Types</h4>
+                                <p class="text-gray-600">First-time buyers, excellent credit, or rebuilding - we have options for everyone.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="bg-white p-8 rounded-xl shadow-lg">
+                    <h3 class="text-2xl font-bold text-gray-900 mb-6 text-center">Payment Calculator</h3>
+                    
+                    <div class="space-y-6">
+                        <div>
+                            <label class="block text-sm font-medium text-gray-700 mb-2">Vehicle Price</label>
+                            <div class="relative">
+                                <span class="absolute left-3 top-3 text-gray-500">$</span>
+                                <input type="number" id="vehiclePrice" value="50000" 
+                                       class="w-full pl-8 pr-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500"
+                                       placeholder="50,000">
+                            </div>
+                        </div>
+                        
+                        <div>
+                            <label class="block text-sm font-medium text-gray-700 mb-2">Down Payment</label>
+                            <div class="relative">
+                                <span class="absolute left-3 top-3 text-gray-500">$</span>
+                                <input type="number" id="downPayment" value="5000" 
+                                       class="w-full pl-8 pr-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500"
+                                       placeholder="5,000">
+                            </div>
+                        </div>
+                        
+                        <div>
+                            <label class="block text-sm font-medium text-gray-700 mb-2">Interest Rate (%)</label>
+                            <input type="number" id="interestRate" value="4.5" step="0.1"
+                                   class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500"
+                                   placeholder="4.5">
+                        </div>
+                        
+                        <div>
+                            <label class="block text-sm font-medium text-gray-700 mb-2">Loan Term (months)</label>
+                            <select id="loanTerm" class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500">
+                                <option value="12">12 months</option>
+                                <option value="24">24 months</option>
+                                <option value="36">36 months</option>
+                                <option value="48">48 months</option>
+                                <option value="60" selected>60 months</option>
+                                <option value="72">72 months</option>
+                                <option value="84">84 months</option>
+                            </select>
+                        </div>
+                        
+                        <button onclick="calculatePayment()" 
+                                class="w-full btn-primary text-white py-3 rounded-lg font-semibold">
+                            Calculate Payment
+                        </button>
+                        
+                        <div id="paymentResult" class="hidden text-center">
+                            <div class="text-3xl font-bold text-blue-600 mb-2" id="monthlyPayment">$0</div>
+                            <div class="text-sm text-gray-600">Monthly Payment</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Trust Indicators Section -->
+    <section class="py-16 bg-white">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-12">
+                <h2 class="text-3xl font-bold text-gray-900 mb-4">Why Trust AutoElite Motors?</h2>
+                <p class="text-lg text-gray-600">We're committed to providing the highest quality vehicles and exceptional service.</p>
+            </div>
+            
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+                <div class="text-center">
+                    <div class="w-16 h-16 bg-blue-100 rounded-full flex items-center justify-center mx-auto mb-4">
+                        <i class="fas fa-certificate text-blue-600 text-2xl"></i>
+                    </div>
+                    <h3 class="text-lg font-semibold text-gray-900 mb-2">Certified Pre-Owned</h3>
+                    <p class="text-gray-600 text-sm">All vehicles undergo rigorous 150+ point inspection</p>
+                </div>
+                
+                <div class="text-center">
+                    <div class="w-16 h-16 bg-green-100 rounded-full flex items-center justify-center mx-auto mb-4">
+                        <i class="fas fa-shield-alt text-green-600 text-2xl"></i>
+                    </div>
+                    <h3 class="text-lg font-semibold text-gray-900 mb-2">Extended Warranty</h3>
+                    <p class="text-gray-600 text-sm">Up to 7 years or 100,000 miles coverage available</p>
+                </div>
+                
+                <div class="text-center">
+                    <div class="w-16 h-16 bg-purple-100 rounded-full flex items-center justify-center mx-auto mb-4">
+                        <i class="fas fa-tools text-purple-600 text-2xl"></i>
+                    </div>
+                    <h3 class="text-lg font-semibold text-gray-900 mb-2">Service Center</h3>
+                    <p class="text-gray-600 text-sm">Factory-trained technicians using OEM parts</p>
+                </div>
+                
+                <div class="text-center">
+                    <div class="w-16 h-16 bg-yellow-100 rounded-full flex items-center justify-center mx-auto mb-4">
+                        <i class="fas fa-handshake text-yellow-600 text-2xl"></i>
+                    </div>
+                    <h3 class="text-lg font-semibold text-gray-900 mb-2">Trade-In Program</h3>
+                    <p class="text-gray-600 text-sm">Get instant quotes and competitive offers</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact" class="py-20 bg-gray-900 text-white">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-16">
+                <h2 class="text-4xl md:text-5xl font-bold mb-4">Ready to Find Your Car?</h2>
+                <p class="text-xl text-gray-300 max-w-3xl mx-auto">
+                    Get in touch with our team today. We're here to help you find the perfect vehicle and secure the best financing.
+                </p>
+            </div>
+            
+            <div class="grid grid-cols-1 lg:grid-cols-2 gap-12">
+                <!-- Contact Form -->
+                <div class="bg-gray-800 p-8 rounded-xl">
+                    <h3 class="text-2xl font-bold mb-6">Get Started Today</h3>
+                    
+                    <form class="space-y-6" id="contactForm">
+                        <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                            <div>
+                                <label class="block text-sm font-medium text-gray-300 mb-2">First Name</label>
+                                <input type="text" required 
+                                       class="w-full px-4 py-3 bg-gray-700 border border-gray-600 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500 text-white"
+                                       placeholder="John">
+                            </div>
+                            <div>
+                                <label class="block text-sm font-medium text-gray-300 mb-2">Last Name</label>
+                                <input type="text" required 
+                                       class="w-full px-4 py-3 bg-gray-700 border border-gray-600 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500 text-white"
+                                       placeholder="Doe">
+                            </div>
+                        </div>
+                        
+                        <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                            <div>
+                                <label class="block text-sm font-medium text-gray-300 mb-2">Email</label>
+                                <input type="email" required 
+                                       class="w-full px-4 py-3 bg-gray-700 border border-gray-600 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500 text-white"
+                                       placeholder="john@example.com">
+                            </div>
+                            <div>
+                                <label class="block text-sm font-medium text-gray-300 mb-2">Phone</label>
+                                <input type="tel" required 
+                                       class="w-full px-4 py-3 bg-gray-700 border border-gray-600 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500 text-white"
+                                       placeholder="(555) 123-4567">
+                            </div>
+                        </div>
+                        
+                        <div>
+                            <label class="block text-sm font-medium text-gray-300 mb-2">Vehicle Interest</label>
+                            <select class="w-full px-4 py-3 bg-gray-700 border border-gray-600 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500 text-white">
+                                <option>Any Vehicle</option>
+                                <option>BMW X5</option>
+                                <option>Tesla Model S</option>
+                                <option>Mercedes-Benz C-Class</option>
+                                <option>Other Luxury Vehicle</option>
+                            </select>
+                        </div>
+                        
+                        <div>
+                            <label class="block text-sm font-medium text-gray-300 mb-2">Credit Score Range</label>
+                            <select class="w-full px-4 py-3 bg-gray-700 border border-gray-600 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500 text-white">
+                                <option>Excellent (750+)</option>
+                                <option>Good (650-749)</option>
+                                <option>Fair (550-649)</option>
+                                <option>Poor (Below 550)</option>
+                                <option>No Credit History</option>
+                            </select>
+                        </div>
+                        
+                        <div>
+                            <label class="block text-sm font-medium text-gray-300 mb-2">Message (Optional)</label>
+                            <textarea rows="4" 
+                                      class="w-full px-4 py-3 bg-gray-700 border border-gray-600 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500 text-white"
+                                      placeholder="Tell us about your ideal vehicle..."></textarea>
+                        </div>
+                        
+                        <button type="submit" 
+                                class="w-full btn-primary text-white py-4 rounded-lg font-semibold text-lg">
+                            <i class="fas fa-paper-plane mr-2"></i>Send Message
+                        </button>
+                    </form>
+                </div>
+                
+                <!-- Contact Information -->
+                <div class="space-y-8">
+                    <div>
+                        <h3 class="text-2xl font-bold mb-6">Contact Information</h3>
+                        
+                        <div class="space-y-6">
+                            <div class="flex items-center">
+                                <div class="w-12 h-12 bg-blue-600 rounded-lg flex items-center justify-center mr-4">
+                                    <i class="fas fa-map-marker-alt text-white"></i>
+                                </div>
+                                <div>
+                                    <div class="font-semibold">Visit Our Showroom</div>
+                                    <div class="text-gray-300">123 Auto Plaza Drive<br>Car City, CA 90210</div>
+                                </div>
+                            </div>
+                            
+                            <div class="flex items-center">
+                                <div class="w-12 h-12 bg-green-600 rounded-lg flex items-center justify-center mr-4">
+                                    <i class="fas fa-phone text-white"></i>
+                                </div>
+                                <div>
+                                    <div class="font-semibold">Call Us</div>
+                                    <div class="text-gray-300">(555) CARS-123<br>Sales: (555) 123-CARS</div>
+                                </div>
+                            </div>
+                            
+                            <div class="flex items-center">
+                                <div class="w-12 h-12 bg-purple-600 rounded-lg flex items-center justify-center mr-4">
+                                    <i class="fas fa-clock text-white"></i>
+                                </div>
+                                <div>
+                                    <div class="font-semibold">Hours</div>
+                                    <div class="text-gray-300">Mon-Fri: 9AM-8PM<br>Sat-Sun: 10AM-6PM</div>
+                                </div>
+                            </div>
+                            
+                            <div class="flex items-center">
+                                <div class="w-12 h-12 bg-yellow-600 rounded-lg flex items-center justify-center mr-4">
+                                    <i class="fas fa-envelope text-white"></i>
+                                </div>
+                                <div>
+                                    <div class="font-semibold">Email Us</div>
+                                    <div class="text-gray-300">sales@autoelitemotors.com<br>support@autoelitemotors.com</div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="bg-gray-800 p-6 rounded-xl">
+                        <h4 class="text-lg font-semibold mb-4">Follow Us</h4>
+                        <div class="flex space-x-4">
+                            <a href="#" class="w-10 h-10 bg-blue-600 rounded-lg flex items-center justify-center hover:bg-blue-700 transition-colors">
+                                <i class="fab fa-facebook-f text-white"></i>
+                            </a>
+                            <a href="#" class="w-10 h-10 bg-blue-400 rounded-lg flex items-center justify-center hover:bg-blue-500 transition-colors">
+                                <i class="fab fa-twitter text-white"></i>
+                            </a>
+                            <a href="#" class="w-10 h-10 bg-blue-800 rounded-lg flex items-center justify-center hover:bg-blue-900 transition-colors">
+                                <i class="fab fa-linkedin-in text-white"></i>
+                            </a>
+                            <a href="#" class="w-10 h-10 bg-red-600 rounded-lg flex items-center justify-center hover:bg-red-700 transition-colors">
+                                <i class="fab fa-youtube text-white"></i>
+                            </a>
+                            <a href="#" class="w-10 h-10 bg-pink-600 rounded-lg flex items-center justify-center hover:bg-pink-700 transition-colors">
+                                <i class="fab fa-instagram text-white"></i>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-black text-white py-12">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid grid-cols-1 md:grid-cols-4 gap-8">
+                <div class="col-span-1 md:col-span-2">
+                    <div class="text-2xl font-bold text-blue-400 mb-4">
+                        <i class="fas fa-car-side mr-2"></i>AutoElite Motors
+                    </div>
+                    <p class="text-gray-400 mb-4 max-w-md">
+                        Your trusted partner in finding the perfect vehicle. With over 15 years of experience and thousands of satisfied customers, we're committed to excellence in automotive sales and service.
+                    </p>
+                    <div class="flex space-x-4">
+                        <div class="flex items-center text-sm text-gray-400">
+                            <i class="fas fa-star text-yellow-400 mr-1"></i>
+                            <span>4.9/5 Rating</span>
+                        </div>
+                        <div class="flex items-center text-sm text-gray-400">
+                            <i class="fas fa-users text-blue-400 mr-1"></i>
+                            <span>15,000+ Customers</span>
+                        </div>
+                    </div>
+                </div>
+                
+                <div>
+                    <h4 class="text-lg font-semibold mb-4">Quick Links</h4>
+                    <ul class="space-y-2 text-gray-400">
+                        <li><a href="#vehicles" class="hover:text-white transition-colors">Browse Vehicles</a></li>
+                        <li><a href="#financing" class="hover:text-white transition-colors">Financing</a></li>
+                        <li><a href="#testimonials" class="hover:text-white transition-colors">Reviews</a></li>
+                        <li><a href="#contact" class="hover:text-white transition-colors">Contact Us</a></li>
+                    </ul>
+                </div>
+                
+                <div>
+                    <h4 class="text-lg font-semibold mb-4">Services</h4>
+                    <ul class="space-y-2 text-gray-400">
+                        <li><span class="hover:text-white transition-colors">Vehicle Sales</span></li>
+                        <li><span class="hover:text-white transition-colors">Auto Financing</span></li>
+                        <li><span class="hover:text-white transition-colors">Trade-In Program</span></li>
+                        <li><span class="hover:text-white transition-colors">Service Center</span></li>
+                    </ul>
+                </div>
+            </div>
+            
+            <div class="border-t border-gray-800 mt-8 pt-8 flex flex-col md:flex-row justify-between items-center">
+                <div class="text-gray-400 text-sm">
+                    © 2024 AutoElite Motors. All rights reserved.
+                </div>
+                <div class="flex space-x-6 mt-4 md:mt-0">
+                    <a href="#" class="text-gray-400 hover:text-white text-sm transition-colors">Privacy Policy</a>
+                    <a href="#" class="text-gray-400 hover:text-white text-sm transition-colors">Terms of Service</a>
+                    <a href="#" class="text-gray-400 hover:text-white text-sm transition-colors">Accessibility</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Back to Top Button -->
+    <button id="backToTop" 
+            class="fixed bottom-8 right-8 w-12 h-12 bg-blue-600 text-white rounded-full shadow-lg hover:bg-blue-700 transition-all duration-300 opacity-0 pointer-events-none z-50">
+        <i class="fas fa-arrow-up"></i>
+    </button>
+
+    <!-- JavaScript -->
+    <script>
+        // Mobile menu toggle
+        document.getElementById('mobile-menu-button').addEventListener('click', function() {
+            const mobileMenu = document.getElementById('mobile-menu');
+            mobileMenu.classList.toggle('hidden');
+        });
+
+        // Smooth scrolling for navigation links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                }
+                // Close mobile menu if open
+                document.getElementById('mobile-menu').classList.add('hidden');
+            });
+        });
+
+        // Back to top button functionality
+        window.addEventListener('scroll', function() {
+            const backToTopButton = document.getElementById('backToTop');
+            if (window.pageYOffset > 300) {
+                backToTopButton.style.opacity = '1';
+                backToTopButton.style.pointerEvents = 'auto';
+            } else {
+                backToTopButton.style.opacity = '0';
+                backToTopButton.style.pointerEvents = 'none';
+            }
+        });
+
+        document.getElementById('backToTop').addEventListener('click', function() {
+            window.scrollTo({
+                top: 0,
+                behavior: 'smooth'
+            });
+        });
+
+        // Financing calculator
+        function calculatePayment() {
+            const vehiclePrice = parseFloat(document.getElementById('vehiclePrice').value) || 0;
+            const downPayment = parseFloat(document.getElementById('downPayment').value) || 0;
+            const interestRate = parseFloat(document.getElementById('interestRate').value) || 0;
+            const loanTerm = parseInt(document.getElementById('loanTerm').value) || 60;
+            
+            // Calculate loan amount
+            const loanAmount = vehiclePrice - downPayment;
+            
+            // Calculate monthly payment using PMT formula
+            const monthlyRate = (interestRate / 100) / 12;
+            const numberOfPayments = loanTerm;
+            
+            let monthlyPayment = 0;
+            if (monthlyRate > 0) {
+                monthlyPayment = loanAmount * (monthlyRate * Math.pow(1 + monthlyRate, numberOfPayments)) / 
+                               (Math.pow(1 + monthlyRate, numberOfPayments) - 1);
+            } else {
+                monthlyPayment = loanAmount / numberOfPayments;
+            }
+            
+            // Display result
+            document.getElementById('monthlyPayment').textContent = '$' + monthlyPayment.toFixed(2);
+            document.getElementById('paymentResult').classList.remove('hidden');
+        }
+
+        // Contact form submission
+        document.getElementById('contactForm').addEventListener('submit', function(e) {
+            e.preventDefault();
+            
+            // Get form data
+            const formData = new FormData(this);
+            const formObject = {};
+            formData.forEach((value, key) => {
+                formObject[key] = value;
+            });
+            
+            // Simulate form submission
+            const submitButton = this.querySelector('button[type="submit"]');
+            const originalText = submitButton.innerHTML;
+            
+            submitButton.innerHTML = '<i class="fas fa-spinner fa-spin mr-2"></i>Sending...';
+            submitButton.disabled = true;
+            
+            setTimeout(() => {
+                submitButton.innerHTML = '<i class="fas fa-check mr-2"></i>Message Sent!';
+                submitButton.classList.remove('btn-primary');
+                submitButton.classList.add('bg-green-600', 'hover:bg-green-700');
+                
+                setTimeout(() => {
+                    submitButton.innerHTML = originalText;
+                    submitButton.disabled = false;
+                    submitButton.classList.add('btn-primary');
+                    submitButton.classList.remove('bg-green-600', 'hover:bg-green-700');
+                    this.reset();
+                }, 3000);
+            }, 2000);
+        });
+
+        // Animate elements on scroll
+        function animateOnScroll() {
+            const elements = document.querySelectorAll('.car-card, .testimonial-card');
+            const windowHeight = window.innerHeight;
+            
+            elements.forEach(element => {
+                const elementTop = element.getBoundingClientRect().top;
+                const elementVisible = 150;
+                
+                if (elementTop < windowHeight - elementVisible) {
+                    element.classList.add('fade-in-up');
+                }
+            });
+        }
+
+        window.addEventListener('scroll', animateOnScroll);
+        window.addEventListener('load', animateOnScroll);
+
+        // Add loading animation to buttons
+        document.querySelectorAll('button').forEach(button => {
+            button.addEventListener('click', function() {
+                if (!this.classList.contains('loading')) {
+                    this.style.transform = 'scale(0.98)';
+                    setTimeout(() => {
+                        this.style.transform = '';
+                    }, 100);
+                }
+            });
+        });
+
+        // Add hover effects to car cards
+        document.querySelectorAll('.car-card').forEach(card => {
+            card.addEventListener('mouseenter', function() {
+                this.style.transform = 'translateY(-8px) scale(1.02)';
+            });
+            
+            card.addEventListener('mouseleave', function() {
+                this.style.transform = '';
+            });
+        });
+
+        // Performance optimization: Lazy load images
+        if ('IntersectionObserver' in window) {
+            const imageObserver = new IntersectionObserver((entries, observer) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        const img = entry.target;
+                        img.src = img.dataset.src || img.src;
+                        img.classList.remove('lazy');
+                        imageObserver.unobserve(img);
+                    }
+                });
+            });
+
+            document.querySelectorAll('img[loading="lazy"]').forEach(img => {
+                imageObserver.observe(img);
+            });
+        }
+    </script>
+
+    <!-- Structured Data for SEO -->
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "AutoDealer",
+        "name": "AutoElite Motors",
+        "description": "Premium car dealer offering luxury vehicles with competitive financing",
+        "url": "https://autoelitemotors.com",
+        "telephone": "+1-555-CARS",
+        "address": {
+            "@type": "PostalAddress",
+            "streetAddress": "123 Auto Plaza Drive",
+            "addressLocality": "Car City",
+            "addressRegion": "CA",
+            "postalCode": "90210",
+            "addressCountry": "US"
+        },
+        "openingHours": [
+            "Mo-Fr 09:00-20:00",
+            "Sa-Su 10:00-18:00"
+        ],
+        "priceRange": "$$$",
+        "aggregateRating": {
+            "@type": "AggregateRating",
+            "ratingValue": "4.9",
+            "reviewCount": "500"
+        }
+    }
+    </script>
+</body>
+</html>
