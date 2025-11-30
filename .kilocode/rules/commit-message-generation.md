@@ -1,4 +1,4 @@
-# Commit Messages
+# Commit Message Generation
 
 ## Objetivo
 Generar mensajes de commit de git en español usando el formato Conventional Commits.
