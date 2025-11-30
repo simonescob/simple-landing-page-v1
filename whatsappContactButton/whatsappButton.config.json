@@ -1,0 +1,34 @@
+{
+  "enabled": true,
+  "phoneNumber": "15551234567",
+  "businessName": "AutoElite Motors",
+  "position": "bottom-right",
+  "customMessage": "Hello, I need assistance with finding my perfect vehicle at AutoElite Motors. Can you help me with my questions?",
+  "showOnPages": ["all"],
+  "zIndex": 9999,
+  "animationDelay": 1000,
+  "bounceAnimation": true,
+  "pulseAnimation": true,
+  "tooltip": {
+    "enabled": true,
+    "text": "Chat with us on WhatsApp",
+    "position": "left"
+  },
+  "deviceDetection": {
+    "androidApp": "com.whatsapp",
+    "iosApp": "whatsapp://",
+    "fallbackUrl": "https://web.whatsapp.com"
+  },
+  "analytics": {
+    "enabled": false,
+    "eventName": "whatsapp_contact_click"
+  },
+  "accessibility": {
+    "ariaLabel": "Contact us via WhatsApp",
+    "keyboardShortcuts": {
+      "enabled": true,
+      "key": "w",
+      "modifiers": ["ctrl", "alt"]
+    }
+  }
+}

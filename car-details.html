@@ -18,6 +18,9 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
     
+    <!-- WhatsApp Contact Button CSS -->
+    <link rel="stylesheet" href="whatsappContactButton/whatsappButton.css">
+    
     <style>
         body {
             font-family: 'Inter', sans-serif;
@@ -566,5 +569,47 @@
     <!-- Scripts -->
     <script src="js/cars-data.js"></script>
     <script src="js/car-details.js"></script>
+    
+    <!-- WhatsApp Contact Button JavaScript -->
+    <script src="whatsappContactButton/whatsappButton.js"></script>
+    
+    <!-- WhatsApp Button Initialization for Car Details Page -->
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            // Wait for car details to load, then initialize WhatsApp button
+            setTimeout(() => {
+                const carTitle = document.getElementById('car-title');
+                const carPrice = document.getElementById('car-price');
+                
+                let carInfo = '';
+                if (carTitle && carTitle.textContent !== 'Loading...') {
+                    carInfo = carTitle.textContent + '. ';
+                }
+                if (carPrice && carPrice.textContent !== 'Loading...') {
+                    carInfo += 'Price: ' + carPrice.textContent + '. ';
+                }
+                
+                const customMessage = carInfo ? 
+                    `Hello AutoElite Motors, I'm interested in this vehicle: ${carInfo}Could you provide more details about financing options and schedule a test drive?` :
+                    'Hello AutoElite Motors, I\'m interested in this vehicle and would like assistance with financing options and scheduling a test drive. Can you help me?';
+                
+                initializeWhatsAppButton({
+                    phoneNumber: '15551234567',
+                    businessName: 'AutoElite Motors',
+                    customMessage: customMessage,
+                    showOnPages: ['car-details'],
+                    position: 'bottom-right',
+                    tooltip: {
+                        enabled: true,
+                        text: 'Interested in this vehicle? Chat with our experts!'
+                    },
+                    analytics: {
+                        enabled: true,
+                        eventName: 'car_details_whatsapp_contact'
+                    }
+                });
+            }, 1000); // Wait for car data to load
+        });
+    </script>
 </body>
 </html>

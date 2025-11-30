@@ -32,6 +32,9 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
     
+    <!-- WhatsApp Contact Button CSS -->
+    <link rel="stylesheet" href="whatsappContactButton/whatsappButton.css">
+    
     <style>
         body {
             font-family: 'Inter', sans-serif;
@@ -976,6 +979,9 @@
     <!-- Loan Calculator JavaScript -->
     <script src="js/loanCalculator.js"></script>
     
+    <!-- WhatsApp Contact Button JavaScript -->
+    <script src="whatsappContactButton/whatsappButton.js"></script>
+    
     <!-- JavaScript -->
     <script>
         // Mobile menu toggle
@@ -1023,6 +1029,23 @@
         document.addEventListener('DOMContentLoaded', function() {
             // Initialize the comprehensive loan approval calculator
             new LoanApprovalCalculator();
+            
+            // Initialize WhatsApp Contact Button
+            initializeWhatsAppButton({
+                phoneNumber: '15551234567',
+                businessName: 'AutoElite Motors',
+                customMessage: 'Hello AutoElite Motors, I\'m interested in your vehicles and would like assistance with finding my perfect car with financing options. Can you help me?',
+                showOnPages: ['all'],
+                position: 'bottom-right',
+                tooltip: {
+                    enabled: true,
+                    text: 'Chat with our car experts on WhatsApp'
+                },
+                analytics: {
+                    enabled: true,
+                    eventName: 'homepage_whatsapp_contact'
+                }
+            });
         });
 
         // Contact form submission

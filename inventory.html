@@ -18,6 +18,9 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
     
+    <!-- WhatsApp Contact Button CSS -->
+    <link rel="stylesheet" href="whatsappContactButton/whatsappButton.css">
+    
     <style>
         body {
             font-family: 'Inter', sans-serif;
@@ -492,5 +495,29 @@
     <!-- Car Data and Scripts -->
     <script src="js/cars-data.js"></script>
     <script src="js/inventory.js"></script>
+    
+    <!-- WhatsApp Contact Button JavaScript -->
+    <script src="whatsappContactButton/whatsappButton.js"></script>
+    
+    <!-- WhatsApp Button Initialization for Inventory Page -->
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            initializeWhatsAppButton({
+                phoneNumber: '15551234567',
+                businessName: 'AutoElite Motors',
+                customMessage: 'Hello AutoElite Motors, I\'m browsing your vehicle inventory and would like assistance with vehicle details and financing options. Can you help me?',
+                showOnPages: ['inventory'],
+                position: 'bottom-right',
+                tooltip: {
+                    enabled: true,
+                    text: 'Need help choosing a vehicle? Chat with us!'
+                },
+                analytics: {
+                    enabled: true,
+                    eventName: 'inventory_whatsapp_contact'
+                }
+            });
+        });
+    </script>
 </body>
 </html>
