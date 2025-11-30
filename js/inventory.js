@@ -544,15 +544,14 @@ function viewCarDetails(carId) {
 }
 
 function calculateFinancing(price) {
-    // Pre-fill financing form with car price
-    const contactSection = document.querySelector('#contact');
-    if (contactSection) {
-        contactSection.scrollIntoView({ behavior: 'smooth' });
-    }
+    // Redirect to main page financing calculator with car price
+    window.location.href = `index.html#financing`;
     
-    // You could also open a modal with financing calculator
-    // This is a simplified implementation
-    console.log(`Calculating financing for $${price}`);
+    // Note: In a more advanced implementation, you could:
+    // 1. Store the car price in localStorage
+    // 2. Pass it as a URL parameter
+    // 3. Pre-fill the calculator with the car price
+    // For now, we're directing users to check their qualification
 }
 
 // Initialize the inventory manager when the page loads
