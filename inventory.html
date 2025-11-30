@@ -1,0 +1,496 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Browse our extensive inventory of premium vehicles. Search, filter, and find your perfect car with advanced filtering options and detailed specifications.">
+    <meta name="keywords" content="car inventory, vehicle search, used cars, car dealership, automotive, car finder">
+    <title>Vehicle Inventory - AutoElite Motors</title>
+    
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    
+    <!-- Font Awesome for Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    
+    <style>
+        body {
+            font-family: 'Inter', sans-serif;
+        }
+        
+        .car-card {
+            transition: all 0.3s ease;
+            border: 1px solid #e5e7eb;
+        }
+        
+        .car-card:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
+            border-color: #3b82f6;
+        }
+        
+        .filter-sidebar {
+            transition: transform 0.3s ease;
+        }
+        
+        .filter-sidebar.collapsed {
+            transform: translateX(-100%);
+        }
+        
+        .price-range-slider {
+            -webkit-appearance: none;
+            appearance: none;
+            height: 6px;
+            background: #e5e7eb;
+            border-radius: 3px;
+            outline: none;
+        }
+        
+        .price-range-slider::-webkit-slider-thumb {
+            -webkit-appearance: none;
+            appearance: none;
+            width: 20px;
+            height: 20px;
+            background: #3b82f6;
+            border-radius: 50%;
+            cursor: pointer;
+        }
+        
+        .price-range-slider::-moz-range-thumb {
+            width: 20px;
+            height: 20px;
+            background: #3b82f6;
+            border-radius: 50%;
+            cursor: pointer;
+            border: none;
+        }
+        
+        .pagination-btn {
+            transition: all 0.2s ease;
+        }
+        
+        .pagination-btn:hover {
+            background-color: #3b82f6;
+            color: white;
+        }
+        
+        .pagination-btn.active {
+            background-color: #1d4ed8;
+            color: white;
+        }
+        
+        .badge {
+            font-size: 0.75rem;
+            font-weight: 600;
+            padding: 0.25rem 0.5rem;
+            border-radius: 0.375rem;
+        }
+        
+        .badge-available {
+            background-color: #dcfce7;
+            color: #166534;
+        }
+        
+        .badge-certified {
+            background-color: #dbeafe;
+            color: #1e40af;
+        }
+        
+        .feature-tag {
+            background-color: #f3f4f6;
+            color: #374151;
+            font-size: 0.75rem;
+            padding: 0.25rem 0.5rem;
+            border-radius: 0.375rem;
+            margin: 0.125rem;
+        }
+        
+        .loading-spinner {
+            border: 3px solid #f3f4f6;
+            border-top: 3px solid #3b82f6;
+            border-radius: 50%;
+            width: 30px;
+            height: 30px;
+            animation: spin 1s linear infinite;
+            margin: 0 auto;
+        }
+        
+        @keyframes spin {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
+        }
+        
+        .fade-in {
+            animation: fadeIn 0.5s ease-in;
+        }
+        
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+        
+        .slide-up {
+            animation: slideUp 0.3s ease-out;
+        }
+        
+        @keyframes slideUp {
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+    </style>
+</head>
+<body class="bg-gray-50">
+    <!-- Navigation -->
+    <nav class="bg-white shadow-lg sticky top-0 z-40">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between items-center h-16">
+                <div class="flex items-center">
+                    <a href="index.html" class="text-2xl font-bold text-blue-600 flex items-center">
+                        <i class="fas fa-car-side mr-2"></i>AutoElite
+                    </a>
+                </div>
+                
+                <div class="hidden md:block">
+                    <div class="ml-10 flex items-baseline space-x-8">
+                        <a href="index.html" class="text-gray-700 hover:text-blue-600 px-3 py-2 text-sm font-medium transition-colors">Home</a>
+                        <a href="inventory.html" class="text-blue-600 px-3 py-2 text-sm font-medium">Inventory</a>
+                        <a href="#financing" class="text-gray-700 hover:text-blue-600 px-3 py-2 text-sm font-medium transition-colors">Financing</a>
+                        <a href="#about" class="text-gray-700 hover:text-blue-600 px-3 py-2 text-sm font-medium transition-colors">About</a>
+                        <a href="#contact" class="text-gray-700 hover:text-blue-600 px-3 py-2 text-sm font-medium transition-colors">Contact</a>
+                    </div>
+                </div>
+                
+                <div class="flex items-center space-x-4">
+                    <a href="tel:+1-555-CARS" class="hidden sm:flex items-center text-sm font-medium text-blue-600">
+                        <i class="fas fa-phone mr-1"></i>(555) CARS
+                    </a>
+                    <a href="#contact" class="btn-primary text-white px-4 py-2 rounded-lg text-sm font-medium">
+                        Get Financing
+                    </a>
+                </div>
+                
+                <!-- Mobile menu button -->
+                <div class="md:hidden">
+                    <button id="mobile-menu-button" class="text-gray-700 hover:text-blue-600 focus:outline-none focus:text-blue-600">
+                        <i class="fas fa-bars text-xl"></i>
+                    </button>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Mobile menu -->
+        <div id="mobile-menu" class="md:hidden hidden bg-white border-t border-gray-200">
+            <div class="px-2 pt-2 pb-3 space-y-1 sm:px-3">
+                <a href="index.html" class="text-gray-700 hover:text-blue-600 block px-3 py-2 text-base font-medium">Home</a>
+                <a href="inventory.html" class="text-blue-600 block px-3 py-2 text-base font-medium">Inventory</a>
+                <a href="#financing" class="text-gray-700 hover:text-blue-600 block px-3 py-2 text-base font-medium">Financing</a>
+                <a href="#about" class="text-gray-700 hover:text-blue-600 block px-3 py-2 text-base font-medium">About</a>
+                <a href="#contact" class="text-gray-700 hover:text-blue-600 block px-3 py-2 text-base font-medium">Contact</a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Header Section -->
+    <section class="bg-gradient-to-r from-blue-600 to-purple-700 text-white py-12">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center">
+                <h1 class="text-4xl md:text-5xl font-bold mb-4">Vehicle Inventory</h1>
+                <p class="text-xl text-blue-100 max-w-3xl mx-auto mb-8">
+                    Browse our extensive collection of premium vehicles. Use our advanced search and filter tools to find your perfect car.
+                </p>
+                
+                <!-- Quick Stats -->
+                <div class="grid grid-cols-2 md:grid-cols-4 gap-6 max-w-4xl mx-auto">
+                    <div class="text-center">
+                        <div class="text-3xl font-bold text-white" id="total-cars">12</div>
+                        <div class="text-blue-200 text-sm">Total Vehicles</div>
+                    </div>
+                    <div class="text-center">
+                        <div class="text-3xl font-bold text-white" id="filtered-cars">12</div>
+                        <div class="text-blue-200 text-sm">Showing</div>
+                    </div>
+                    <div class="text-center">
+                        <div class="text-3xl font-bold text-white" id="avg-price">$58,400</div>
+                        <div class="text-blue-200 text-sm">Average Price</div>
+                    </div>
+                    <div class="text-center">
+                        <div class="text-3xl font-bold text-white" id="brands-count">8</div>
+                        <div class="text-blue-200 text-sm">Brands</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Main Content -->
+    <main class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
+        <div class="flex flex-col lg:flex-row gap-8">
+            <!-- Filter Sidebar -->
+            <aside id="filter-sidebar" class="filter-sidebar lg:w-80 bg-white rounded-lg shadow-lg p-6 h-fit lg:sticky lg:top-24">
+                <div class="flex items-center justify-between mb-6">
+                    <h2 class="text-xl font-bold text-gray-900">Filters</h2>
+                    <button id="clear-filters" class="text-blue-600 hover:text-blue-800 text-sm font-medium">
+                        Clear All
+                    </button>
+                </div>
+
+                <!-- Search -->
+                <div class="mb-6">
+                    <label class="block text-sm font-medium text-gray-700 mb-2">Search</label>
+                    <div class="relative">
+                        <input type="text" id="search-input" placeholder="Make, model, or year..." 
+                               class="w-full pl-10 pr-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500">
+                        <i class="fas fa-search absolute left-3 top-3 text-gray-400"></i>
+                    </div>
+                </div>
+
+                <!-- Make & Model -->
+                <div class="mb-6">
+                    <label class="block text-sm font-medium text-gray-700 mb-2">Make</label>
+                    <select id="make-select" class="w-full px-3 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500">
+                        <option value="">All Makes</option>
+                    </select>
+                </div>
+
+                <div class="mb-6">
+                    <label class="block text-sm font-medium text-gray-700 mb-2">Model</label>
+                    <select id="model-select" class="w-full px-3 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500" disabled>
+                        <option value="">All Models</option>
+                    </select>
+                </div>
+
+                <!-- Body Type -->
+                <div class="mb-6">
+                    <label class="block text-sm font-medium text-gray-700 mb-2">Body Type</label>
+                    <div class="space-y-2" id="body-type-filters">
+                        <label class="flex items-center">
+                            <input type="checkbox" class="rounded border-gray-300 text-blue-600 focus:ring-blue-500" value="SUV">
+                            <span class="ml-2 text-sm text-gray-700">SUV</span>
+                            <span class="ml-auto text-xs text-gray-500" id="suv-count">0</span>
+                        </label>
+                        <label class="flex items-center">
+                            <input type="checkbox" class="rounded border-gray-300 text-blue-600 focus:ring-blue-500" value="Sedan">
+                            <span class="ml-2 text-sm text-gray-700">Sedan</span>
+                            <span class="ml-auto text-xs text-gray-500" id="sedan-count">0</span>
+                        </label>
+                        <label class="flex items-center">
+                            <input type="checkbox" class="rounded border-gray-300 text-blue-600 focus:ring-blue-500" value="Coupe">
+                            <span class="ml-2 text-sm text-gray-700">Coupe</span>
+                            <span class="ml-auto text-xs text-gray-500" id="coupe-count">0</span>
+                        </label>
+                        <label class="flex items-center">
+                            <input type="checkbox" class="rounded border-gray-300 text-blue-600 focus:ring-blue-500" value="Wagon">
+                            <span class="ml-2 text-sm text-gray-700">Wagon</span>
+                            <span class="ml-auto text-xs text-gray-500" id="wagon-count">0</span>
+                        </label>
+                    </div>
+                </div>
+
+                <!-- Fuel Type -->
+                <div class="mb-6">
+                    <label class="block text-sm font-medium text-gray-700 mb-2">Fuel Type</label>
+                    <div class="space-y-2" id="fuel-type-filters">
+                        <label class="flex items-center">
+                            <input type="checkbox" class="rounded border-gray-300 text-blue-600 focus:ring-blue-500" value="Gasoline">
+                            <span class="ml-2 text-sm text-gray-700">Gasoline</span>
+                            <span class="ml-auto text-xs text-gray-500" id="gasoline-count">0</span>
+                        </label>
+                        <label class="flex items-center">
+                            <input type="checkbox" class="rounded border-gray-300 text-blue-600 focus:ring-blue-500" value="Hybrid">
+                            <span class="ml-2 text-sm text-gray-700">Hybrid</span>
+                            <span class="ml-auto text-xs text-gray-500" id="hybrid-count">0</span>
+                        </label>
+                        <label class="flex items-center">
+                            <input type="checkbox" class="rounded border-gray-300 text-blue-600 focus:ring-blue-500" value="Electric">
+                            <span class="ml-2 text-sm text-gray-700">Electric</span>
+                            <span class="ml-auto text-xs text-gray-500" id="electric-count">0</span>
+                        </label>
+                    </div>
+                </div>
+
+                <!-- Price Range -->
+                <div class="mb-6">
+                    <label class="block text-sm font-medium text-gray-700 mb-2">Price Range</label>
+                    <div class="px-2">
+                        <div class="flex items-center justify-between mb-2">
+                            <span class="text-sm text-gray-600" id="min-price">$20,000</span>
+                            <span class="text-sm text-gray-600" id="max-price">$120,000</span>
+                        </div>
+                        <div class="flex space-x-4">
+                            <input type="range" id="min-price-slider" min="20000" max="120000" value="20000" class="price-range-slider flex-1">
+                            <input type="range" id="max-price-slider" min="20000" max="120000" value="120000" class="price-range-slider flex-1">
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Year Range -->
+                <div class="mb-6">
+                    <label class="block text-sm font-medium text-gray-700 mb-2">Year</label>
+                    <div class="flex space-x-2">
+                        <select id="min-year" class="flex-1 px-3 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500">
+                            <option value="">Min Year</option>
+                        </select>
+                        <select id="max-year" class="flex-1 px-3 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500">
+                            <option value="">Max Year</option>
+                        </select>
+                    </div>
+                </div>
+
+                <!-- Mileage -->
+                <div class="mb-6">
+                    <label class="block text-sm font-medium text-gray-700 mb-2">Max Mileage</label>
+                    <select id="max-mileage" class="w-full px-3 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500">
+                        <option value="">Any Mileage</option>
+                        <option value="10000">Under 10,000</option>
+                        <option value="25000">Under 25,000</option>
+                        <option value="50000">Under 50,000</option>
+                        <option value="75000">Under 75,000</option>
+                        <option value="100000">Under 100,000</option>
+                    </select>
+                </div>
+
+                <!-- Transmission -->
+                <div class="mb-6">
+                    <label class="block text-sm font-medium text-gray-700 mb-2">Transmission</label>
+                    <select id="transmission-select" class="w-full px-3 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500">
+                        <option value="">All Transmissions</option>
+                        <option value="Automatic">Automatic</option>
+                        <option value="Manual">Manual</option>
+                        <option value="CVT">CVT</option>
+                        <option value="PDK Automatic">PDK Automatic</option>
+                        <option value="Single Speed">Single Speed</option>
+                    </select>
+                </div>
+
+                <button id="apply-filters" class="w-full bg-blue-600 text-white py-3 rounded-lg font-semibold hover:bg-blue-700 transition-colors">
+                    Apply Filters
+                </button>
+            </aside>
+
+            <!-- Main Content Area -->
+            <div class="flex-1">
+                <!-- Toolbar -->
+                <div class="bg-white rounded-lg shadow-sm p-4 mb-6">
+                    <div class="flex flex-col sm:flex-row justify-between items-start sm:items-center gap-4">
+                        <div class="flex items-center space-x-4">
+                            <button id="toggle-filters" class="lg:hidden bg-blue-600 text-white px-4 py-2 rounded-lg font-medium">
+                                <i class="fas fa-filter mr-2"></i>Filters
+                            </button>
+                            <div class="text-sm text-gray-600">
+                                Showing <span id="showing-count">12</span> of <span id="total-count">12</span> vehicles
+                            </div>
+                        </div>
+                        
+                        <div class="flex items-center space-x-4">
+                            <!-- View Toggle -->
+                            <div class="hidden sm:flex bg-gray-100 rounded-lg p-1">
+                                <button id="grid-view" class="px-3 py-1 bg-white rounded-md text-sm font-medium">
+                                    <i class="fas fa-th"></i>
+                                </button>
+                                <button id="list-view" class="px-3 py-1 text-gray-600 hover:text-gray-800 rounded-md text-sm font-medium">
+                                    <i class="fas fa-list"></i>
+                                </button>
+                            </div>
+                            
+                            <!-- Sort -->
+                            <select id="sort-select" class="px-3 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500">
+                                <option value="price-low">Price: Low to High</option>
+                                <option value="price-high">Price: High to Low</option>
+                                <option value="year-new">Year: Newest First</option>
+                                <option value="year-old">Year: Oldest First</option>
+                                <option value="mileage-low">Mileage: Low to High</option>
+                                <option value="mileage-high">Mileage: High to Low</option>
+                                <option value="make">Make: A to Z</option>
+                                <option value="model">Model: A to Z</option>
+                            </select>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Loading State -->
+                <div id="loading-state" class="hidden text-center py-12">
+                    <div class="loading-spinner"></div>
+                    <p class="mt-4 text-gray-600">Loading vehicles...</p>
+                </div>
+
+                <!-- Car Grid -->
+                <div id="car-grid" class="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-6">
+                    <!-- Cars will be dynamically inserted here -->
+                </div>
+
+                <!-- No Results -->
+                <div id="no-results" class="hidden text-center py-12">
+                    <i class="fas fa-search text-6xl text-gray-300 mb-4"></i>
+                    <h3 class="text-xl font-semibold text-gray-900 mb-2">No vehicles found</h3>
+                    <p class="text-gray-600 mb-6">Try adjusting your search criteria or filters.</p>
+                    <button id="clear-all-filters" class="bg-blue-600 text-white px-6 py-3 rounded-lg font-semibold hover:bg-blue-700 transition-colors">
+                        Clear All Filters
+                    </button>
+                </div>
+
+                <!-- Pagination -->
+                <div id="pagination" class="mt-12 flex justify-center">
+                    <nav class="flex items-center space-x-2">
+                        <!-- Pagination buttons will be dynamically inserted here -->
+                    </nav>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <!-- Footer -->
+    <footer class="bg-black text-white py-12 mt-16">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid grid-cols-1 md:grid-cols-4 gap-8">
+                <div class="col-span-1 md:col-span-2">
+                    <div class="text-2xl font-bold text-blue-400 mb-4">
+                        <i class="fas fa-car-side mr-2"></i>AutoElite Motors
+                    </div>
+                    <p class="text-gray-400 mb-4 max-w-md">
+                        Your trusted partner in finding the perfect vehicle. With over 15 years of experience and thousands of satisfied customers.
+                    </p>
+                </div>
+                
+                <div>
+                    <h4 class="text-lg font-semibold mb-4">Quick Links</h4>
+                    <ul class="space-y-2 text-gray-400">
+                        <li><a href="index.html" class="hover:text-white transition-colors">Home</a></li>
+                        <li><a href="inventory.html" class="hover:text-white transition-colors">Inventory</a></li>
+                        <li><a href="#financing" class="hover:text-white transition-colors">Financing</a></li>
+                        <li><a href="#contact" class="hover:text-white transition-colors">Contact</a></li>
+                    </ul>
+                </div>
+                
+                <div>
+                    <h4 class="text-lg font-semibold mb-4">Contact</h4>
+                    <ul class="space-y-2 text-gray-400">
+                        <li>(555) CARS-123</li>
+                        <li>123 Auto Plaza Drive</li>
+                        <li>Car City, CA 90210</li>
+                        <li>sales@autoelitemotors.com</li>
+                    </ul>
+                </div>
+            </div>
+            
+            <div class="border-t border-gray-800 mt-8 pt-8 text-center text-gray-400 text-sm">
+                © 2024 AutoElite Motors. All rights reserved.
+            </div>
+        </div>
+    </footer>
+
+    <!-- Car Data and Scripts -->
+    <script src="js/cars-data.js"></script>
+    <script src="js/inventory.js"></script>
+</body>
+</html>

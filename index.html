@@ -113,7 +113,7 @@
                 
                 <div class="hidden md:block">
                     <div class="ml-10 flex items-baseline space-x-8">
-                        <a href="#vehicles" class="text-gray-700 hover:text-blue-600 px-3 py-2 text-sm font-medium transition-colors">Vehicles</a>
+                        <a href="inventory.html" class="text-gray-700 hover:text-blue-600 px-3 py-2 text-sm font-medium transition-colors">Inventory</a>
                         <a href="#financing" class="text-gray-700 hover:text-blue-600 px-3 py-2 text-sm font-medium transition-colors">Financing</a>
                         <a href="#testimonials" class="text-gray-700 hover:text-blue-600 px-3 py-2 text-sm font-medium transition-colors">Reviews</a>
                         <a href="#contact" class="text-gray-700 hover:text-blue-600 px-3 py-2 text-sm font-medium transition-colors">Contact</a>
@@ -141,7 +141,7 @@
         <!-- Mobile menu -->
         <div id="mobile-menu" class="md:hidden hidden bg-white border-t border-gray-200">
             <div class="px-2 pt-2 pb-3 space-y-1 sm:px-3">
-                <a href="#vehicles" class="text-gray-700 hover:text-blue-600 block px-3 py-2 text-base font-medium">Vehicles</a>
+                <a href="inventory.html" class="text-gray-700 hover:text-blue-600 block px-3 py-2 text-base font-medium">Inventory</a>
                 <a href="#financing" class="text-gray-700 hover:text-blue-600 block px-3 py-2 text-base font-medium">Financing</a>
                 <a href="#testimonials" class="text-gray-700 hover:text-blue-600 block px-3 py-2 text-base font-medium">Reviews</a>
                 <a href="#contact" class="text-gray-700 hover:text-blue-600 block px-3 py-2 text-base font-medium">Contact</a>
@@ -172,8 +172,8 @@
                     Premium vehicles with competitive financing. Over 15,000 satisfied customers trust AutoElite Motors.
                 </p>
                 <div class="flex flex-col sm:flex-row gap-4 justify-center items-center">
-                    <a href="#vehicles" class="btn-primary text-white px-8 py-4 rounded-lg text-lg font-semibold">
-                        <i class="fas fa-search mr-2"></i>Browse Vehicles
+                    <a href="inventory.html" class="btn-primary text-white px-8 py-4 rounded-lg text-lg font-semibold">
+                        <i class="fas fa-search mr-2"></i>Browse Inventory
                     </a>
                     <a href="#financing" class="bg-white/20 backdrop-blur-md text-white px-8 py-4 rounded-lg text-lg font-semibold hover:bg-white/30 transition-all">
                         <i class="fas fa-calculator mr-2"></i>Check Financing
@@ -259,7 +259,7 @@
                         </div>
                         
                         <div class="flex gap-2">
-                            <button class="flex-1 btn-primary text-white py-3 rounded-lg font-semibold">
+                            <button onclick="viewCarDetails(2)" class="flex-1 btn-primary text-white py-3 rounded-lg font-semibold">
                                 View Details
                             </button>
                             <button class="px-4 py-3 border border-blue-600 text-blue-600 rounded-lg hover:bg-blue-50 transition-colors">
@@ -283,6 +283,20 @@
                     <div class="p-6">
                         <h3 class="text-2xl font-bold text-gray-900 mb-2">2023 Tesla Model S</h3>
                         <p class="text-gray-600 mb-4">All-electric luxury sedan with autopilot and long-range capabilities.</p>
+                        
+                        <div class="flex items-center justify-between mb-4">
+                            <div class="text-3xl font-bold text-blue-600">$89,900</div>
+                            <div class="text-sm text-gray-500">Starting at $1,299/mo</div>
+                        </div>
+                        
+                        <div class="flex gap-2">
+                            <button onclick="viewCarDetails(2)" class="flex-1 btn-primary text-white py-3 rounded-lg font-semibold">
+                                View Details
+                            </button>
+                            <button class="px-4 py-3 border border-blue-600 text-blue-600 rounded-lg hover:bg-blue-50 transition-colors">
+                                <i class="fas fa-heart"></i>
+                            </button>
+                        </div>
                         
                         <div class="grid grid-cols-2 gap-4 mb-4 text-sm">
                             <div class="flex items-center">
@@ -309,7 +323,7 @@
                         </div>
                         
                         <div class="flex gap-2">
-                            <button class="flex-1 btn-primary text-white py-3 rounded-lg font-semibold">
+                            <button onclick="viewCarDetails(2)" class="flex-1 btn-primary text-white py-3 rounded-lg font-semibold">
                                 View Details
                             </button>
                             <button class="px-4 py-3 border border-blue-600 text-blue-600 rounded-lg hover:bg-blue-50 transition-colors">
@@ -333,6 +347,20 @@
                     <div class="p-6">
                         <h3 class="text-2xl font-bold text-gray-900 mb-2">2024 Mercedes-Benz C-Class</h3>
                         <p class="text-gray-600 mb-4">Premium sedan with MBUX infotainment and advanced safety features.</p>
+                        
+                        <div class="flex items-center justify-between mb-4">
+                            <div class="text-3xl font-bold text-blue-600">$52,400</div>
+                            <div class="text-sm text-gray-500">Starting at $699/mo</div>
+                        </div>
+                        
+                        <div class="flex gap-2">
+                            <button onclick="viewCarDetails(3)" class="flex-1 btn-primary text-white py-3 rounded-lg font-semibold">
+                                View Details
+                            </button>
+                            <button class="px-4 py-3 border border-blue-600 text-blue-600 rounded-lg hover:bg-blue-50 transition-colors">
+                                <i class="fas fa-heart"></i>
+                            </button>
+                        </div>
                         
                         <div class="grid grid-cols-2 gap-4 mb-4 text-sm">
                             <div class="flex items-center">
@@ -359,7 +387,7 @@
                         </div>
                         
                         <div class="flex gap-2">
-                            <button class="flex-1 btn-primary text-white py-3 rounded-lg font-semibold">
+                            <button onclick="viewCarDetails(2)" class="flex-1 btn-primary text-white py-3 rounded-lg font-semibold">
                                 View Details
                             </button>
                             <button class="px-4 py-3 border border-blue-600 text-blue-600 rounded-lg hover:bg-blue-50 transition-colors">
@@ -371,7 +399,7 @@
             </div>
             
             <div class="text-center mt-12">
-                <a href="#contact" class="btn-primary text-white px-8 py-4 rounded-lg text-lg font-semibold inline-flex items-center">
+                <a href="inventory.html" class="btn-primary text-white px-8 py-4 rounded-lg text-lg font-semibold inline-flex items-center">
                     <i class="fas fa-eye mr-2"></i>View All Vehicles
                 </a>
             </div>
@@ -834,7 +862,7 @@
                 <div>
                     <h4 class="text-lg font-semibold mb-4">Quick Links</h4>
                     <ul class="space-y-2 text-gray-400">
-                        <li><a href="#vehicles" class="hover:text-white transition-colors">Browse Vehicles</a></li>
+                        <li><a href="inventory.html" class="hover:text-white transition-colors">Browse Vehicles</a></li>
                         <li><a href="#financing" class="hover:text-white transition-colors">Financing</a></li>
                         <li><a href="#testimonials" class="hover:text-white transition-colors">Reviews</a></li>
                         <li><a href="#contact" class="hover:text-white transition-colors">Contact Us</a></li>
@@ -1031,6 +1059,13 @@
             document.querySelectorAll('img[loading="lazy"]').forEach(img => {
                 imageObserver.observe(img);
             });
+        }
+
+        // Global function to view car details
+        function viewCarDetails(carId) {
+            // Store car ID in localStorage for the details page
+            localStorage.setItem('selectedCarId', carId);
+            window.location.href = `car-details.html?id=${carId}`;
         }
     </script>
 
